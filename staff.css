@@ -1,0 +1,94 @@
+/* Uses variables from your base.css (colors, spacing, radius, etc.) */
+
+.dash { padding: var(--space-2xl) 0 var(--space-3xl); }
+.dash__title { margin-bottom: var(--space-lg); }
+
+/* KPI row */
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+}
+.card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+.kpi { padding: var(--space-xl); }
+.kpi__label { color: var(--text-secondary); margin-bottom: .4rem; }
+.kpi__value { font: 700 1.6rem/1.2 var(--font-sans); }
+
+/* 3-column grid blocks */
+.cards-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: var(--space-xl);
+}
+.block__title { margin-bottom: .6rem; }
+.block__body {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+/* Word cloud */
+.wordcloud {
+  display: flex; flex-wrap: wrap; gap: .6rem 1rem;
+  min-height: 140px; align-content: start;
+}
+.wordcloud span { font-weight: 600; }
+
+/* Heatmap */
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .5rem;
+}
+.cell {
+  position: relative;
+  padding: 1.6rem .6rem .6rem;
+  border-radius: var(--radius-md);
+  color: #111; background: #eee;
+}
+.cell__name {
+  position: absolute; top: .4rem; left: .5rem;
+  font: 600 .8rem/1 var(--font-sans);
+  color: #0f172a;
+}
+.cell__val {
+  position: absolute; bottom: .45rem; right: .5rem;
+  font-weight: 700;
+  color: #111;
+}
+.heatmap__legend {
+  display: flex; align-items: center; gap: .6rem; margin-top: .6rem; color: var(--text-secondary);
+}
+.heatmap__legend .grad {
+  height: 8px; width: 140px; border-radius: 999px;
+  background: linear-gradient(90deg, #22c55e, #f59e0b, #ef4444);
+}
+
+/* Progress */
+.progress {
+  width: 100%; height: 12px; border-radius: 999px;
+  background: #eff1f5; overflow: hidden; margin-bottom: .5rem;
+  border: 1px solid var(--border-light);
+}
+.progress__bar { height: 100%; border-radius: 999px; transition: width .4s ease; }
+.progress__label { color: var(--text-secondary); }
+
+/* Insights */
+.insights { margin-top: var(--space-2xl); }
+.insight + .insight { margin-top: var(--space-lg); }
+.notes { padding-left: 1rem; display: grid; gap: .3rem; list-style: disc; }
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .cards-3 { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 800px) {
+  .kpis { grid-template-columns: 1fr 1fr; }
+  .cards-3 { grid-template-columns: 1fr; }
+}

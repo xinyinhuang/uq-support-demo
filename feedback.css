@@ -1,0 +1,218 @@
+/* ===== Page base ===== */
+.main-content {
+    background: #fafafa;
+    padding: 40px 0 80px 0;
+}
+
+.info-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ===== Section headings ===== */
+.info-section h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.info-section p.text-muted {
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== Filter bar ===== */
+.d-flex[role="group"] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+.d-flex select {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+
+/* ===== Staff card grid ===== */
+.d-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+@media (max-width: 900px) {
+    .d-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== Individual Staff Card ===== */
+.handler {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 16px;
+    padding: 22px 26px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.handler:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+}
+
+/* Avatar */
+.handler-avatar {
+    flex-shrink: 0;
+    margin-right: 20px;
+    align-self: flex-start;
+}
+.handler-avatar img {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f2f2f2;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+/* Info */
+.handler-info { flex-grow: 1; }
+.handler-info h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+.handler-info p { margin: 3px 0; color: #444; }
+.handler-info .handler-role { opacity: 0.85; }
+.handler-info .handler-dept { color: #666; }
+.handler-flowers {
+    font-weight: 600;
+    color: #e35b9d;
+    margin-top: 6px;
+}
+
+/* Actions */
+.handler .d-flex {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* === Make Send Flower & Short Note look identical === */
+.handler .submit-btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #3b82f6;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;       
+    min-width: 148px;           
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    transition: transform .12s ease, box-shadow .12s ease, background .15s ease;
+}
+.handler .submit-btn:hover{
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0,0,0,.10);
+}
+.handler .submit-btn:active{
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}
+
+/* ===== Remove outer “Quick Thanks” frame ===== */
+.handlers-card {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ===== Top Flowers section ===== */
+.fb-toplist {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+@media (max-width: 1100px) {
+    .fb-toplist { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px) {
+    .fb-toplist { grid-template-columns: 1fr; }
+}
+.fb-toplist .handler {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.fb-toplist .handler-avatar img { width: 70px; height: 70px; }
+.fb-toplist .handler-info h3 { font-size: 1.1rem; }
+.fb-toplist .text-small { color: #555; }
+
+/* ===== Toast ===== */
+.fb-toast{
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%) translateY(20px);
+    background: #111;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 160ms ease, transform 160ms ease;
+    z-index: 9999;
+}
+.fb-toast.is-visible{
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ===== Floating flower animation ===== */
+.fb-float{
+    position: fixed !important; /* 确保相对视口漂浮 */
+    font-size: 22px;
+    user-select: none;
+    pointer-events: none;
+    animation: fb-burst 900ms ease forwards;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+@keyframes fb-burst{
+    0%   { opacity: 0; transform: translate(-50%, -10%) scale(.9); }
+    15%  { opacity: 1; transform: translate(-50%, -30%) scale(1.0); }
+    100% { opacity: 0; transform: translate(-50%, -120%) scale(1.1); }
+}
+
+/* ===== Utilities ===== */
+.mb-sm { margin-bottom: 8px; }
+.mb-md { margin-bottom: 16px; }
+.mb-lg { margin-bottom: 24px; }
+.mt-sm { margin-top: 8px; }
+.mt-md { margin-top: 16px; }
+.mt-lg { margin-top: 24px; }
+.gap-md { gap: 12px; }
+
+/* ===== Responsive tweak ===== */
+@media (max-width: 600px) {
+    .handler { flex-direction: column; align-items: center; text-align: center; }
+    .handler-avatar { margin: 0 0 10px 0; }
+    .handler-avatar img { width: 96px; height: 96px; }
+    .handler-info { align-items: center; }
+}

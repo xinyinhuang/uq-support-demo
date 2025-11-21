@@ -1,0 +1,42 @@
+/* Use same hero image as booking page */
+.hero--booking .hero__media {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1529429612779-c8e40ef2f36e?q=80&w=2000&auto=format&fit=crop')
+              center/cover no-repeat;
+  filter: brightness(.55);
+}
+
+/* Centered confirmation card */
+.confirm { padding: var(--space-2xl) 0 var(--space-4xl); }
+.confirm__card {
+  max-width: 520px;
+  margin: 0 auto;
+}
+.confirm__line { color: var(--text); margin: .35rem 0; }
+
+/* Status pill */
+.tag {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .55rem .9rem;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--border-light);
+  background: var(--bg-primary);
+  color: var(--text);
+}
+.tag--confirmed {
+  background: color-mix(in oklab, var(--color-primary) 12%, white);
+  border-color: color-mix(in oklab, var(--color-primary) 30%, white);
+  color: var(--color-primary);
+}
+
+.confirm__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-md);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .confirm { padding-bottom: var(--space-3xl); }
+}

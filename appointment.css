@@ -1,0 +1,81 @@
+/* Reuse tokens & components from base.css / contact.css */
+
+.hero--booking .hero__media {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1529429612779-c8e40ef2f36e?q=80&w=2000&auto=format&fit=crop')
+              center/cover no-repeat;
+  filter: brightness(.55);
+}
+
+.appt { padding: var(--space-2xl) 0 var(--space-4xl); }
+.appt__header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+.appt__grid {
+  display: grid; gap: var(--space-xl);
+  grid-template-columns: 1.1fr 2fr;
+}
+.profile--summary .profile__head { margin-bottom: var(--space-md); }
+.appt__id { margin-top: .5rem; color: var(--text-secondary); }
+.appt__actions { display: flex; gap: .5rem; margin-top: var(--space-md); }
+
+/* Details card */
+.appt__details { display: grid; gap: var(--space-lg); }
+.section-title { margin-bottom: .25rem; }
+.kv {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: .5rem 1rem;
+}
+.kv dt { color: var(--text-secondary); font-weight: var(--font-weight-medium); }
+.kv dd { margin: 0; }
+
+.notes-box {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: .9rem;
+  min-height: 84px;
+  background: var(--bg-primary);
+}
+
+.appt__footer { display: flex; gap: .75rem; justify-content: flex-end; }
+
+
+.tag {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .45rem .8rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  background: var(--bg-primary);
+  color: var(--text);
+  font-weight: var(--font-weight-medium);
+}
+.tag--confirmed {
+  background: color-mix(in oklab, var(--color-primary) 12%, white);
+  border-color: color-mix(in oklab, var(--color-primary) 30%, white);
+  color: var(--color-primary);
+}
+.tag--pending {
+  background: color-mix(in oklab, #f59e0b 12%, white);
+  border-color: color-mix(in oklab, #f59e0b 30%, white);
+  color: #a16207;
+}
+.tag--cancelled {
+  background: color-mix(in oklab, #ef4444 12%, white);
+  border-color: color-mix(in oklab, #ef4444 30%, white);
+  color: #b91c1c;
+}
+
+/* Buttons variants */
+.btn--secondary { background: #eef2ff; color: #3730a3; }
+.btn--secondary:hover { background: #e0e7ff; }
+.btn--danger { background: #ef4444; color: #fff; }
+.btn--danger:hover { background: #dc2626; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .appt__grid { grid-template-columns: 1fr; }
+  .appt__footer { justify-content: stretch; }
+  .appt__footer .btn { width: 100%; }
+}

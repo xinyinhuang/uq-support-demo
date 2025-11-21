@@ -1,0 +1,83 @@
+/* Reuse tokens from base.css and components from student-central.css */
+
+/* Hero image override for this page */
+.hero--booking .hero__media {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1529429612779-c8e40ef2f36e?q=80&w=2000&auto=format&fit=crop')
+              center/cover no-repeat;
+  filter: brightness(.55);
+}
+
+/* Layout */
+.booking { padding: var(--space-2xl) 0 var(--space-3xl); }
+.booking__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+/* Summary card tweaks */
+.profile--summary .profile__head { margin-bottom: var(--space-md); }
+.booking__line { color: var(--text); margin: .25rem 0; }
+
+/* Form */
+.booking__form { display: grid; grid-template-rows: auto auto 1fr auto; gap: .75rem; }
+.label { font-weight: var(--font-weight-semibold); }
+.help { color: var(--text-secondary); font-size: var(--font-size-sm); margin-bottom: .25rem; }
+.input--textarea {
+  width: 100%;
+  padding: .75rem .9rem;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  resize: vertical;
+  min-height: 120px;
+}
+.input--textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in sRGB, var(--color-primary) 20%, transparent);
+}
+
+.booking__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: .25rem;
+}
+
+/* Stepper */
+.stepper { margin-top: var(--space-2xl); }
+.stepper__items {
+  display: flex; align-items: center; gap: var(--space-md);
+  max-width: 560px;
+}
+.stepper__item {
+  display: grid; justify-items: center; gap: .4rem; min-width: 80px;
+  color: var(--text-secondary);
+}
+.stepper__item .dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--border-medium);
+}
+.stepper__item.is-active { color: var(--text); }
+.stepper__item.is-active .dot {
+  background: var(--color-primary);
+}
+.stepper__item.is-done .dot {
+  background: var(--color-primary-light);
+}
+.stepper__separator {
+  height: 2px; flex: 1;
+  background: var(--border-light);
+}
+.stepper__separator.is-active {
+  background: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .booking__grid { grid-template-columns: 1fr; }
+  .booking__actions { justify-content: stretch; }
+  .booking__actions .btn { width: 100%; }
+}

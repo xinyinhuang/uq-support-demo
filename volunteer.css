@@ -1,0 +1,261 @@
+:root {
+  --uq-purple: #4b2b7f;
+  --uq-purple-900: #3f256d;
+  --bg-page: #f3f1f7;
+  --card-bg: #ffffff;
+  --card-border: #ece9f2;
+  --muted: #777089;
+  --link: #5b3cc4;
+  --link-hover: #3a23a6;
+  --chip: #ede8fa;
+  --radius: 14px;
+}
+
+/* General */
+body {
+  background: var(--bg-page);
+  font-family: "Inter", "Helvetica Neue", sans-serif;
+}
+
+/* ===== Top Nav ===== */
+/* Layout */
+.wrap {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 24px;
+}
+
+/* Volunteer Card */
+.v-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  position: relative;
+  display: flex;
+  gap: 24px;
+}
+
+.v-card .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  object-fit: cover;
+}
+
+.v-card > div {
+  flex: 1;
+  padding-bottom: 60px; /* Make space for the button */
+}
+
+/* CTA Button */
+.cta {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  background: var(--uq-purple);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.cta:hover {
+  background: var(--uq-purple-900);
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.topbar a {
+  color: #eae3ff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.topbar a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #eae3ff;
+  font-size: 14px;
+}
+
+/* ===== Layout ===== */
+.wrap {
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 0 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 0.9fr;
+  gap: 28px;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  aside {
+    order: -1;
+  }
+}
+
+/* ===== Volunteer Cards ===== */
+.v-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(26, 18, 53, 0.04);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  margin-top: 4px; /* 對齊標題 */
+}
+
+.v-title {
+  font-weight: 700;
+  color: #2b2440;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.v-desc {
+  color: #534a6c;
+  line-height: 1.6;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.v-meta {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.join-link {
+  color: var(--link);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.join-link:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.cta {
+  align-self: center;
+  background: #493e79;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.cta:hover {
+  background: #3a3161;
+}
+
+/* ===== Feedback Wall ===== */
+aside {
+  background: #f6f3ff;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.wall-title {
+  font-weight: 800;
+  color: #2b2440;
+  margin-bottom: 12px;
+}
+
+.wall-item {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+
+.wall-img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.wall-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-block;
+  width: 100%;
+  background: var(--chip);
+  color: #493e79;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  text-align: left;
+  cursor: default;
+}
+
+/* ===== Utility ===== */
+.muted {
+  color: var(--muted);
+}
+
+.small-note {
+  font-size: 12px;
+  margin-top: 12px;
+}

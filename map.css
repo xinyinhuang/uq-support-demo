@@ -1,0 +1,176 @@
+/* —— 兜底变量（没有 base.css 时也能用） —— */
+:root{
+  --bg-secondary:#f7f7f8;
+  --color-white:#fff;
+  --text-primary:#1f1f23;
+  --text-secondary:#6b7280;
+  --border-light:#e5e7eb;
+  --border-medium:#d1d5db;
+  --primary:#5b2c86;
+  --primary-2:#6d3aa0;
+
+  --space-sm:8px;
+  --space-md:16px;
+  --space-lg:24px;
+
+  --radius-md:10px;
+  --radius-lg:14px;
+  --radius-xl:18px;
+  --radius-full:999px;
+
+  --shadow-sm:0 1px 3px rgba(0,0,0,.08);
+  --shadow-md:0 4px 12px rgba(0,0,0,.12);
+  --shadow-lg:0 8px 24px rgba(0,0,0,.16);
+
+  --fs-xs:12px; --fs-sm:14px; --fs-md:18px; --fw-600:600;
+}
+
+/* 只作用于本页面组件，避免被外部样式影响 */
+.page, .sidebar, .menu, .map, .popovers, .popover, .btn { box-sizing:border-box; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
+
+/* —— 布局 —— */
+.page{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns: 300px 1fr;
+  background:var(--bg-secondary);
+  color:var(--text-primary);
+}
+
+.sidebar{
+  background:var(--color-white);
+  border-right:1px solid var(--border-light);
+  padding: var(--space-lg) var(--space-md);
+  display:flex; flex-direction:column; gap:var(--space-md);
+}
+
+/* 搜索框 */
+.search{ position:sticky; top:0; background:var(--color-white); padding-bottom:var(--space-md); }
+.search__icon{ position:relative; }
+.search__icon::before{
+  content:"🔎"; position:absolute; left:10px; top:50%; transform:translateY(-50%); color:var(--text-secondary); font-size:14px;
+}
+.search__input{
+  width:100%; padding:10px 12px 10px 34px;
+  border:1px solid var(--border-medium); border-radius:var(--radius-lg);
+  outline:none; transition:border-color .2s, box-shadow .2s;
+}
+.search__input:focus{ border-color:var(--primary); box-shadow:var(--shadow-sm); }
+
+/* 菜单 */
+.menu{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+.menu__item{
+  width:100%; display:flex; align-items:center;
+  padding:14px 16px; background:var(--color-white);
+  border:1px solid var(--border-light); border-radius:var(--radius-md);
+  font-size:var(--fs-sm); cursor:pointer; line-height:1.4;
+  transition: background .2s, border-color .2s, box-shadow .2s;
+}
+.menu__item:hover{ background:#fafafa; border-color:var(--border-medium); box-shadow:var(--shadow-sm); }
+
+/* 地图 */
+.map{ position:relative; background:#000; overflow:hidden; }
+.map__image{ width:100%; height:100vh; object-fit:cover; display:block; }
+
+/* —— 固定位置的弹窗栈 —— */
+.map .popovers{
+  position:absolute;
+  /* 固定在地图右侧，距右和顶部留一点空气感 */
+  left: 3%;
+  top:   9%;
+  width: min(420px, 36vw);
+  display:none;                  /* 用 is-visible 切换整个栈 */
+  flex-direction:column;
+  gap: 12px;                     /* 卡片之间的距离 */
+  z-index: 50;                   /* 盖在地图之上 */
+}
+.map .popovers.is-visible{ display:flex; }
+
+/* 单张弹窗卡片（不再绝对定位，统一由栈容器控制位置） */
+.map .popovers .popover{
+  display:flex; align-items:center; gap: var(--space-md);
+  padding: var(--space-md);
+  background:var(--color-white);
+  border:1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width:100%;
+  animation: fadeIn .18s ease;
+}
+
+.popover__thumb{ width:64px; height:64px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+.popover__body{ display:flex; flex-direction:column; gap:4px; }
+.popover__title{ font-size:var(--fs-md); font-weight:var(--fw-600); }
+.popover__time{ font-size:var(--fs-xs); color:var(--text-secondary); }
+.popover__actions{ display:flex; gap:8px; margin-top:6px; }
+
+/* 按钮 */
+.btn{
+  appearance:none; border:1px solid var(--border-medium);
+  background:var(--color-white); color:var(--text-primary);
+  padding:8px 14px; border-radius:var(--radius-full);
+  font-size:var(--fs-sm); line-height:1; cursor:pointer;
+  transition: background .2s, border-color .2s, transform .1s;
+}
+.btn:hover{ background:#f6f6f7; }
+.btn:active{ transform: translateY(1px); }
+.btn--primary{ background:var(--primary); border-color:var(--primary); color:#fff; }
+.btn--primary:hover{ background:var(--primary-2); }
+
+/* 动画 */
+@keyframes fadeIn{ from{opacity:0; transform:translateY(-4px);} to{opacity:1; transform:translateY(0);} }
+
+/* 响应式 */
+@media (max-width: 900px){
+  .page{ grid-template-columns: 1fr; }
+  .sidebar{ border-right:none; border-bottom:1px solid var(--border-light); }
+  .map__image{ height: calc(100vh - 220px); }
+  .map .popovers{ left: 50%; right: auto; transform: translateX(-50%); width: min(520px, 92vw); top: 12%; }
+}
+
+.map .pins {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+}
+
+/* 外层 wrapper：统一定位 */
+.map .pin-wrapper {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  pointer-events: auto;
+  text-align: center;
+}
+
+/* Pin */
+.map .pin {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #7c3aed;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.map .pin:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0,0,0,.3);
+}
+.map .pin.is-active {
+  outline: 3px solid rgba(124,58,237,.25);
+}
+
+/* 标签文字 */
+.map .pin-label {
+  margin-top: 4px;
+  font-size: 12px;
+  background: rgba(255,255,255,0.85);
+  padding: 2px 6px;
+  border-radius: 6px;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+
