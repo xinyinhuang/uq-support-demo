@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book with Student Central</title>
+
+  <!-- Global styles -->
+   <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+ <link rel="stylesheet" href="css/page.css/index.css" />
+  <link rel="stylesheet" href="css/page.css/contact.css">
+  <link rel="stylesheet" href="css/page.css/contact-detail.css">
+</head>
+<body>
+     <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+      <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="contact.html">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+            </div>
+            <button class="search-btn">
+                <input type="text" class="search-bar" placeholder="Search here..." aria-label="Search">
+               
+            </button>
+        </div>
+    </nav>
+
+  <!-- Hero -->
+  <section class="hero hero--booking">
+    <div class="hero__media"></div>
+    <div class="hero__overlay">
+      <div class="container hero__content">
+        <h1>Student Central</h1>
+        <p class="text-lead">Need assistance? We’ve got you covered.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb / section tab -->
+  <nav class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumbs__list">
+        <li><a href="contact.html">Meet us in Campus</a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="booking container">
+    <div class="booking__grid">
+      <!-- Left: summary card -->
+      <article class="card profile profile--summary">
+        <div class="profile__head">
+          <img class="avatar"
+               src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=400&auto=format&fit=crop"
+               alt="Portrait of Adrian">
+          <div>
+            <h4 class="mb-0">Adrian</h4>
+          </div>
+        </div>
+
+        <p class="booking__line">
+          at <strong>Student Central, Saint Lucia Campus</strong>
+        </p>
+    
+          <p class="booking__line">
+          on <strong>Friday, Oct 13 2025</strong> at<br>
+          <strong id="selected-time">—</strong>
+</p>
+
+        </p>
+      </article>
+
+      <!-- Right: message form -->
+      <form class="card booking__form" action="#" method="post" novalidate>
+        <label for="message" class="label">
+          Type in Message <span class="text-muted">( Optional )</span>
+        </label>
+        <p class="help">
+          This is some help text to inform the user why we are requesting this information.
+        </p>
+
+        <textarea id="message" name="message" class="input input--textarea" rows="5"
+                  placeholder="Type your message here..."></textarea>
+
+        <div class="booking__actions">
+          <button id="bookFinal" onclick="location.href='contact-confirm.html'" type="button" class="btn">Book</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Stepper -->
+    <section class="stepper" aria-label="Booking progress">
+      <div class="stepper__items">
+        <div class="stepper__item is-done">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="label">Details</span>
+        </div>
+        <div class="stepper__separator is-active" aria-hidden="true"></div>
+        <div class="stepper__item is-active">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="label">Message</span>
+        </div>
+        <div class="stepper__separator" aria-hidden="true"></div>
+        <div class="stepper__item">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="label">Review</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="mb-0">© The University of Queensland</p>
+      <nav class="footer__links">
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+<script>
+
+const params = new URLSearchParams(location.search);
+
+  let time = params.get('time') || sessionStorage.getItem('booking.time') || '';
+  const out = document.getElementById('selected-time');
+  if (out) out.textContent = time || '—';
+
+  document.getElementById('bookFinal')?.addEventListener('click', () => {
+    const note = document.getElementById('message').value.trim();
+    sessionStorage.setItem('booking.note', note);
+    if (time) sessionStorage.setItem('booking.time', time); 
+
+    const url = 'contact-confirm.html'
+      + (time ? ('?time=' + encodeURIComponent(time)) : '')
+      + (note ? ('&note=' + encodeURIComponent(note)) : '');
+    location.href = url;
+  });
+
+</script>
+</body>
+</html>

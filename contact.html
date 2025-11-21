@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us</title>
+
+  <!-- Global resets & tokens -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+ <link rel="stylesheet" href="css/page.css/index.css" />
+  <link rel="stylesheet" href="css/page.css/contact.css">
+</head>
+<body>
+      <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+      <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="#">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+            </div>
+            <button class="search-btn">
+                <input type="text" class="search-bar" placeholder="Search here..." aria-label="Search">
+               
+            </button>
+        </div>
+    </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__media" role="img" aria-label="Ceiling architecture pattern"></div>
+    <div class="hero__overlay">
+      <div class="container hero__content">
+        <h1>Student Central</h1>
+        <p class="text-lead">Need assistance? We’ve got you covered.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumbs -->
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <div class="container">
+      <ol class="breadcrumbs__list">
+        <li><a href="#">UQ home</a></li>
+        <li><a href="#">Cultural Wellbeing and Connection</a></li>
+        <li aria-current="page">Student Central</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Info Cards -->
+  <section class="info">
+    <div class="container info__grid">
+      <!-- Contact -->
+      <article class="card">
+        <h3>Contact us</h3>
+        <p class="text-muted">Monday to Friday</p>
+        <ul class="list">
+          <li><a href="mailto:student.central@uq.edu.au">Email</a></li>
+          <li><a href="tel:1300275870">1300 275 870 (8.30am–5pm)</a></li>
+          <li><a href="#">Building 42, St Lucia</a></li>
+          <li><a href="#">Building 8101A, Gatton</a></li>
+        </ul>
+        <button class="btn btn--ghost" disabled>Chat — unavailable</button>
+      </article>
+
+      <!-- Emergency -->
+      <article class="card">
+        <h3>Emergency help</h3>
+        <p class="text-muted">For immediate risk:</p>
+        <div class="stack">
+          <div>
+            <div class="eyebrow">UQ Campus Security</div>
+            <a href="tel:+61733653333">07 3365 3333 (24/7)</a>
+          </div>
+          <div>
+            <div class="eyebrow">Off-campus emergency</div>
+            <a href="tel:000">000 (24/7)</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Crisis -->
+      <article class="card">
+        <h3>Crisis support</h3>
+        <p class="text-muted">For urgent mental health support:</p>
+        <div class="stack">
+          <div>
+            <div class="eyebrow">UQ Counselling and Crisis Line</div>
+            <a href="tel:1300851998">1300 851 998 (24/7)</a>
+          </div>
+          <div>
+            <div class="eyebrow">Text a Crisis Counsellor</div>
+            <a href="sms:+61488884115">0488 884 115 (4.30pm–8am)</a>
+          </div>
+        </div>
+        <a class="link-arrow" href="#">Sexual Misconduct Support Unit (SMSU)</a>
+      </article>
+
+      <!-- Map -->
+      <aside class="card card--map">
+        <div class="map">
+          <img src='pictures/location1.png' alt="Prentice Building 42 map placeholder">
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Meet Us -->
+  <section class="meet">
+    <div class="container">
+      <h2 class="meet__title">Meet us in Campus</h2>
+
+      <div class="meet__grid">
+        <!-- Staff Profile -->
+        <article class="profile card">
+          <div class="profile__head">
+            <img class="avatar" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=400&auto=format&fit=crop" alt="Adrian portrait">
+            <div>
+              <h4 class="mb-0">Adrian</h4>
+              <div class="text-muted">Head of Student Central</div>
+              <a class="link-underline" href="#">Speaks Hindi, and English</a>
+            </div>
+          </div>
+          <p class="mb-0 text-muted">
+            Adrian is from Singapore and came to Australia in 2012 for her masters in Computer Science
+          </p>
+        </article>
+        
+        <!-- Time Slots -->
+        <div class="slots card">
+          <div class="slots__header">
+            <div class="slot-col">
+              <div class="day">Today</div>
+              <div class="date">9 Oct</div>
+            </div>
+            <div class="slot-col">
+              <div class="day">Fri</div>
+              <div class="date">10 Oct</div>
+            </div>
+            <div class="slot-col">
+              <div class="day">Sat</div>
+              <div class="date">11 Oct</div>
+            </div>
+            <div class="slot-col">
+              <div class="day">Mon</div>
+              <div class="date">12 Oct</div>
+            </div>
+          </div>
+
+          <div class="slots__body">
+            <div class="slot-col">
+              <button class="chip" data-time="1:15 pm">1:15 pm</button>
+              <button class="chip" data-time="1:45 pm">1:45 pm</button>
+              <button class="chip" data-time="2:45 pm">2:45 pm</button>
+            </div>
+            <div class="slot-col">
+               <button class="chip" data-time="1:15 pm">1:15 pm</button>
+              <button class="chip" data-time="1:45 pm">1:45 pm</button>
+              <button class="chip" data-time="2:45 pm">2:45 pm</button>
+            </div>
+            <div class="slot-col">
+              <button class="chip" data-time="1:15 pm">1:15 pm</button>
+              <button class="chip" data-time="1:45 pm">1:45 pm</button>
+              <button class="chip" data-time="2:45 pm">2:45 pm</button>
+            </div>
+            <div class="slot-col">
+              <button class="chip" data-time="1:15 pm">1:15 pm</button>
+              <button class="chip" data-time="1:45 pm">1:45 pm</button>
+              <button class="chip" data-time="2:45 pm">2:45 pm</button>
+            </div>
+          </div>
+
+          <div class="slots__cta">
+            <button id="bookBtn" class="btn" type="button" disabled>Book appointment</button>
+          </div>
+        </div>
+  
+    
+
+<!-- 2) Noah Williams -->
+
+<article class="profile card">
+  <div class="profile__head">
+    <img class="avatar"
+         src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop"
+         alt="Portrait of Noah Williams">
+    <div>
+      <h4 class="mb-0">Noah Williams</h4>
+      <div class="text-muted">Student Experience Officer</div>
+      <a class="link-underline" href="#">Speaks English</a>
+    </div>
+  </div>
+  <p class="mb-0 text-muted">
+    Noah coordinates orientation, peer mentoring, and campus events to help students find community.
+  </p>
+</article>
+
+ <!-- Time Slots -->
+        <div class="slots card">
+          <div class="slots__header">
+            <div class="slot-col">
+              <div class="day">Tomorrow</div>
+              <div class="date">10 Oct</div>
+            </div>
+            <div class="slot-col">
+              <div class="day">Mon</div>
+              <div class="date">13 Oct</div>
+            </div>
+            <div class="slot-col">
+              <div class="day">Wed</div>
+              <div class="date">13 Oct</div>
+            </div>
+            <div class="slot-col">
+              <div class="day">Thu</div>
+              <div class="date">14 Oct</div>
+            </div>
+          </div>
+
+          <div class="slots__body">
+            <div class="slot-col">
+              <button class="chip">10:15 am</button>
+              <button class="chip">11:15 am</button>
+              <button class="chip">2:45 pm</button>
+            </div>
+            <div class="slot-col">
+              <button class="chip">10:15 am</button>
+              <button class="chip">1:45 pm</button>
+              <button class="chip">2:45 pm</button>
+            </div>
+            <div class="slot-col">
+              <button class="chip">9:15 am</button>
+              <button class="chip">1:45 pm</button>
+              <button class="chip">2:45 pm</button>
+            </div>
+            <div class="slot-col">
+              <button class="chip">10:15 pm</button>
+              <button class="chip">1:45 pm</button>
+              <button class="chip">2:45 pm</button>
+            </div>
+          </div>
+
+          <div class="slots__cta">
+            <button class="btn">Book appointment</button>
+          </div>
+        </div>
+      <!-- </div> -->
+    <!-- </div>
+  </section> -->
+
+
+<!-- 3) Diego Álvarez -->
+<article class="profile card">
+  <div class="profile__head">
+    <img class="avatar"
+         src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?q=80&w=400&auto=format&fit=crop"
+         alt="Portrait of Diego Alvarez">
+    <div>
+      <h4 class="mb-0">Diego Lee</h4>
+      <div class="text-muted">Wellbeing &amp; Referral Officer</div>
+      <a class="link-underline" href="#">Speaks English, Spanish, Chinese</a>
+    </div>
+  </div>
+  <p class="mb-0 text-muted">
+    Diego connects students with counselling, accessibility, and crisis support, and manages urgent referrals.
+  </p>
+</article>
+ <!-- Time Slots -->
+        <div class="slots card">
+          <div class="slots__header">
+            <div class="slot-col">
+              <div class="day">Tomorrow</div>
+              <div class="date">10 Oct</div>
+            </div>
+            <div class="slot-col">
+              <div class="day">Mon</div>
+              <div class="date">13 Oct</div>
+            </div>
+            <div class="slot-col">
+              <div class="day">Wed</div>
+              <div class="date">13 Oct</div>
+            </div>
+            <div class="slot-col">
+              <div class="day">Thu</div>
+              <div class="date">14 Oct</div>
+            </div>
+          </div>
+
+          <div class="slots__body">
+            <div class="slot-col">
+              <button class="chip">10:15 am</button>
+              <button class="chip">11:15 am</button>
+              <button class="chip">2:45 pm</button>
+            </div>
+            <div class="slot-col">
+              <button class="chip">10:15 am</button>
+              <button class="chip">1:45 pm</button>
+              <button class="chip">2:45 pm</button>
+            </div>
+            <div class="slot-col">
+              <button class="chip">9:15 am</button>
+              <button class="chip">1:45 pm</button>
+              <button class="chip">2:45 pm</button>
+            </div>
+            <div class="slot-col">
+              <button class="chip">10:15 pm</button>
+              <button class="chip">1:45 pm</button>
+              <button class="chip">2:45 pm</button>
+            </div>
+          </div>
+
+          <div class="slots__cta">
+            <button class="btn">Book appointment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="mb-0">© The University of Queensland</p>
+      <nav class="footer__links">
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+ 
+  let selectedTime = "";
+  document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".chip");
+    if (!btn) return;
+
+    document.querySelectorAll(".chip").forEach(ch => {
+      ch.classList.remove("chip--active");
+      ch.setAttribute("aria-pressed", "false");
+    });
+
+    selectedTime = btn.dataset.time || btn.textContent.trim();
+    btn.classList.add("chip--active");
+    btn.setAttribute("aria-pressed", "true");
+
+    sessionStorage.setItem("booking.time", selectedTime);
+
+    const book = document.getElementById("bookBtn");
+    if (book) book.disabled = false;
+  });
+ 
+  document.getElementById("bookBtn").addEventListener("click", function () {
+    if (!selectedTime) return;
+    const url = "contact-detail.html?time=" + encodeURIComponent(selectedTime);
+    window.location.href = url;
+  });
+</script>
+
+</body>
+</html>

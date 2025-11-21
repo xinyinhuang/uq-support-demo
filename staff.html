@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Staff Data Dashboard</title>
+
+  <!-- Global styles you already have -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+   <link rel="stylesheet" href="css/page.css/index.css" />
+  <link rel="stylesheet" href="css/page.css/staff.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="#">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="contact.html">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+            </div>
+            <button class="search-btn">
+                <span class="search-icon">🔍</span>
+                Search
+            </button>
+        </div>
+    </nav>
+
+  <main class="container dash">
+    <h1 class="dash__title">Data Analysis</h1>
+
+    <!-- KPI cards -->
+    <section class="kpis">
+      <article class="kpi card">
+        <div class="kpi__label">Total Feedback</div>
+        <div class="kpi__value" id="kpi-total">–</div>
+      </article>
+      <article class="kpi card">
+        <div class="kpi__label">Completion Rate</div>
+        <div class="kpi__value" id="kpi-completion">–</div>
+      </article>
+      <article class="kpi card">
+        <div class="kpi__label">Average Rating</div>
+        <div class="kpi__value" id="kpi-rating">–</div>
+      </article>
+      <article class="kpi card">
+        <div class="kpi__label">Requests Received</div>
+        <div class="kpi__value" id="kpi-requests">–</div>
+      </article>
+    </section>
+
+    <!-- 3-column analytics blocks -->
+    <section class="cards-3">
+      <!-- Feedback Metrics -->
+      <div class="block">
+        <h3 class="block__title">Feedback Metrics</h3>
+        <div class="block__body">
+          <article class="card">
+            <h4>Pie Chart – Feedback Type Breakdown</h4>
+            <canvas id="pieFeedback" height="150"></canvas>
+          </article>
+          <article class="card">
+            <h4>Bar Chart – Recognition vs Complaint</h4>
+            <canvas id="barRecVsComp" height="150"></canvas>
+          </article>
+          <article class="card">
+            <h4>Line Chart – Feedback Trend</h4>
+            <canvas id="lineFeedbackTrend" height="150"></canvas>
+          </article>
+        </div>
+      </div>
+
+      <!-- Trends & Highlights -->
+      <div class="block">
+        <h3 class="block__title">Trends &amp; Highlights</h3>
+        <div class="block__body">
+          <article class="card">
+            <h4>Word Cloud – Top Themes</h4>
+            <div class="wordcloud" id="wordCloud">
+              <!-- populated by JS -->
+            </div>
+          </article>
+          <article class="card">
+            <h4>Heatmap – Department Issues</h4>
+            <div class="heatmap" id="heatmap">
+              <!-- squares added by JS -->
+            </div>
+            <div class="heatmap__legend">
+              <span>Low</span>
+              <div class="grad"></div>
+              <span>High</span>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Task Metrics -->
+      <div class="block">
+        <h3 class="block__title">Task Metrics</h3>
+        <div class="block__body">
+          <article class="card">
+            <h4>Bar Chart – Requests vs Completed</h4>
+            <canvas id="barReqVsDone" height="150"></canvas>
+          </article>
+          <article class="card">
+            <h4>Line Chart – Average Resolution Time</h4>
+            <canvas id="lineResolution" height="150"></canvas>
+          </article>
+          <article class="card">
+            <h4>Progress – Overdue Tasks</h4>
+            <div class="progress">
+              <div class="progress__bar" id="progressOverdue" style="width:0%"></div>
+            </div>
+            <div class="progress__label"><span id="overduePct">0%</span> overdue</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights -->
+    <section class="insights card">
+      <h3 class="block__title">Insights &amp; Weekly Highlights</h3>
+      <div class="insight">
+        <strong>Positive / Negative Trends Summary</strong>
+        <p id="summaryText">–</p>
+      </div>
+      <div class="insight">
+        <strong>Auto Recommendations / Notes (AI)</strong>
+        <ul id="aiNotes" class="notes"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="mb-0">© The University of Queensland</p>
+      <nav class="footer__links">
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Page script: generate fake data & render charts -->
+  <script>
+    // ---------- helpers ----------
+    const rnd = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+    // ---------- KPIs ----------
+    const total = rnd(300, 1200);
+    const completion = rnd(78, 98);
+    const rating = (Math.random()*1.2 + 3.8).toFixed(2); // ~3.8–5.0
+    const requests = rnd(250, 800);
+    document.getElementById("kpi-total").textContent = total.toLocaleString();
+    document.getElementById("kpi-completion").textContent = completion + "%";
+    document.getElementById("kpi-rating").textContent = rating + " ★";
+    document.getElementById("kpi-requests").textContent = requests.toLocaleString();
+
+    // ---------- charts palette ----------
+    const purple = getComputedStyle(document.documentElement).getPropertyValue("--color-primary")?.trim() || "#5b3cc4";
+    const gray = "#d1d5db";
+    const green = "#22c55e";
+    const red = "#ef4444";
+    const blue = "#3b82f6";
+    const amber = "#f59e0b";
+
+    // ---------- Pie: Feedback Type Breakdown ----------
+    new Chart(document.getElementById("pieFeedback"), {
+      type: "pie",
+      data: {
+        labels: ["Recognition","Complaint","Suggestion","Other"],
+        datasets: [{
+          data: [rnd(35,55), rnd(15,35), rnd(10,25), rnd(5,15)],
+          backgroundColor: [green, red, blue, amber],
+          borderWidth: 0
+        }]
+      },
+      options: { plugins: { legend: { position: "bottom" } } }
+    });
+
+    // ---------- Bar: Recognition vs Complaint ----------
+    new Chart(document.getElementById("barRecVsComp"), {
+      type: "bar",
+      data: {
+        labels: months.slice(0, 8),
+        datasets: [
+          { label: "Recognition", data: Array.from({length:8},()=>rnd(20,80)), backgroundColor: green, borderRadius: 6, barThickness: 22 },
+          { label: "Complaint", data: Array.from({length:8},()=>rnd(8,50)), backgroundColor: red, borderRadius: 6, barThickness: 22 }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true, grid: { color: "#f0f0f0"} } },
+        plugins: { legend: { position: "bottom" } }
+      }
+    });
+
+    // ---------- Line: Feedback Trend ----------
+    new Chart(document.getElementById("lineFeedbackTrend"), {
+      type: "line",
+      data: {
+        labels: months.slice(0, 10),
+        datasets: [{
+          label: "Feedback count",
+          data: Array.from({length:10},()=>rnd(40,120)),
+          borderColor: purple, backgroundColor: "rgba(91,60,196,.15)",
+          tension: .35, fill: true, pointRadius: 3
+        }]
+      },
+      options: { scales: { y: { beginAtZero: true } }, plugins: { legend: { display:false } } }
+    });
+
+    // ---------- Bar: Requests vs Completed ----------
+    new Chart(document.getElementById("barReqVsDone"), {
+      type: "bar",
+      data: {
+        labels: months.slice(0, 8),
+        datasets: [
+          { label: "Received", data: Array.from({length:8},()=>rnd(60,140)), backgroundColor: blue, borderRadius: 6, barThickness: 22 },
+          { label: "Completed", data: Array.from({length:8},()=>rnd(50,130)), backgroundColor: green, borderRadius: 6, barThickness: 22 }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true } },
+        plugins: { legend: { position: "bottom" } }
+      }
+    });
+
+    // ---------- Line: Average Resolution Time (hrs) ----------
+    new Chart(document.getElementById("lineResolution"), {
+      type: "line",
+      data: {
+        labels: months.slice(0, 10),
+        datasets: [{
+          label: "Avg hours",
+          data: Array.from({length:10},()=>rnd(6, 36)),
+          borderColor: amber, backgroundColor: "rgba(245,158,11,.15)",
+          tension: .3, fill: true, pointRadius: 3
+        }]
+      },
+      options: { scales: { y: { beginAtZero: true } }, plugins: { legend: { position:"bottom" } } }
+    });
+
+    // ---------- Progress: Overdue Tasks ----------
+    const overdue = rnd(3, 18);
+    const totalTasks = rnd(80, 140);
+    const pct = Math.round((overdue/totalTasks)*100);
+    document.getElementById("overduePct").textContent = pct + "%";
+    const bar = document.getElementById("progressOverdue");
+    bar.style.width = Math.max(pct, 5) + "%";
+    bar.style.background = pct < 10 ? green : pct < 20 ? amber : red;
+
+    // ---------- Word Cloud (simple HTML-based) ----------
+    const words = [
+      ["Helpful", rnd(18,34)], ["Queue time", rnd(12,26)], ["Response", rnd(16,30)],
+      ["Communication", rnd(12,22)], ["Facilities", rnd(12,26)], ["Clarity", rnd(14,28)],
+      ["Respect", rnd(10,22)], ["Delay", rnd(14,28)], ["Professional", rnd(12,24)],
+      ["Portal", rnd(12,24)], ["Email", rnd(12,24)], ["Appointment", rnd(16,30)]
+    ].sort((a,b)=>b[1]-a[1]);
+
+    const wc = document.getElementById("wordCloud");
+    words.forEach(([w, sz])=>{
+      const span = document.createElement("span");
+      span.textContent = w;
+      span.style.fontSize = sz + "px";
+      span.style.opacity = (0.6 + (sz/40)*0.4).toFixed(2);
+      wc.appendChild(span);
+    });
+
+    // ---------- Heatmap (CSS grid) ----------
+    const departments = ["IT","Library","Finance","Housing","Health","Career","Security","Admin","Sport","Labs","Admissions","Intl"];
+    const heat = document.getElementById("heatmap");
+    departments.forEach(dep=>{
+      const v = rnd(0,100);
+      const cell = document.createElement("div");
+      cell.className = "cell";
+      // color scale: green -> amber -> red
+      const color = v < 35 ? green : v < 70 ? amber : red;
+      cell.style.background = color;
+      cell.innerHTML = `<span class="cell__name">${dep}</span><span class="cell__val">${v}</span>`;
+      heat.appendChild(cell);
+    });
+
+    // ---------- Insights ----------
+    const positives = ["Faster replies", "Higher first-contact resolution", "Great support from Library"];
+    const negatives = ["Longer queue on Mondays", "Housing backlogs", "Clarity issues in portal forms"];
+    document.getElementById("summaryText").textContent =
+      `Positives: ${positives.slice(0,2).join(", ")}. Negatives: ${negatives.slice(0,2).join(", ")}.`;
+
+    const notes = [
+      "Introduce callback option during peak hours.",
+      "Auto-route IT tickets with known solutions.",
+      "Promote self-help FAQ for top 5 questions.",
+      "Add clearer copy to housing request form."
+    ];
+    const ul = document.getElementById("aiNotes");
+    notes.forEach(n=>{ const li=document.createElement("li"); li.textContent=n; ul.appendChild(li); });
+  </script>
+</body>
+</html>

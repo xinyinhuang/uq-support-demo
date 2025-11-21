@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Booking Confirmed</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+ <link rel="stylesheet" href="css/page.css/index.css" />
+  <link rel="stylesheet" href="css/page.css/contact.css">
+  <link rel="stylesheet" href="css/page.css/contact-confirm.css">
+</head>
+<body>
+  <!-- Top bar -->
+ <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+      <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="contact.html">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+            </div>
+            <button class="search-btn">
+                <input type="text" class="search-bar" placeholder="Search here..." aria-label="Search">
+               
+            </button>
+        </div>
+    </nav>
+
+  <!-- Hero -->
+  <section class="hero hero--booking">
+    <div class="hero__media"></div>
+    <div class="hero__overlay">
+      <div class="container hero__content">
+        <h1>Student Central</h1>
+        <p class="text-lead">Need assistance? We’ve got you covered.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumbs__list">
+        <li><a href="contact.html">Meet us in Campus</a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="confirm container">
+    <article class="card profile confirm__card" aria-labelledby="bkTitle">
+      <div class="profile__head">
+        <img class="avatar"
+             src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=400&auto=format&fit=crop"
+             alt="Portrait of Adrian">
+        <div>
+          <h4 id="bkTitle" class="mb-0">Adrian</h4>
+        </div>
+      </div>
+
+      <p class="confirm__line">
+        at <strong>Student Central, Saint Lucia Campus</strong>
+      </p>
+      <p class="confirm__line">
+        on <strong>Friday, Oct 13 2025</strong> at<br>
+          <strong id="selected-time"> </strong>
+      </p>
+
+      <div class="confirm__actions">
+        <p class="confirm__line" id="confirm-note" style="margin-top:.25rem;color:var(--text-secondary)"></p>
+        <button onclick="location.href='appointment.html'" class="tag tag--confirmed" aria-live="polite">Booking Confirmed</button> 
+        <a class="btn btn--secondary" href="contact.html" style="margin-left: 1rem;">Cancel</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="mb-0">© The University of Queensland</p>
+      <nav class="footer__links">
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+<script>
+  const params = new URLSearchParams(location.search);
+  const time = params.get('time') || sessionStorage.getItem('booking.time') || '';
+  const note = params.get('note') || sessionStorage.getItem('booking.note') || '';
+
+  const el = document.getElementById('selected-time');
+  if (el) el.textContent = time || '—';
+
+  const noteEl = document.getElementById('confirm-note');
+  if (noteEl) noteEl.textContent = note ? ('Note: ' + note) : '';
+
+  const btn = document.querySelector('.confirm__actions .tag--confirmed');
+  if (btn) {
+    btn.onclick = () => {
+      alert('Book successfully');
+      const url = 'appointment.html'
+        + (time ? ('?time=' + encodeURIComponent(time)) : '')
+        + (note ? ('&note=' + encodeURIComponent(note)) : '');
+      location.href = url;
+    };
+  }
+</script>
+</body>
+</html>

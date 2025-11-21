@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Detailed Feedback - UQ</title>
+
+    <link rel="stylesheet" href="css/page.css/index.css" />
+    <link rel="stylesheet" href="css/page.css/request.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/page.css/feedback.css" />
+</head>
+
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav" aria-label="Top">
+        <div class="top-nav-links">
+            <a href="#">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav" aria-label="Main">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="contact.html">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+            </div>
+            <a class="search-btn" href="feedback.html" aria-label="Back to Feedback & Thanks">← Back</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main">
+        <section class="info-section" aria-labelledby="note-title" style="max-width:720px;">
+            <div style="text-align:center; margin-bottom:16px;">
+                <h1 id="note-title" style="margin:8px 0 4px;">🌸 Leave a Short Note 📝</h1>
+                <p class="text-muted" style="margin:0;">Say thanks or share a warm message—quick, anonymous, and kind.</p>
+            </div>
+
+            <form id="note-form" class="request-form" style="background:#fff; border-radius:16px; padding:20px;">
+                <div class="form-group">
+                    <label for="target">Who is this for? <span class="text-light">(optional)</span></label>
+                    <input type="text" id="target" name="target" placeholder="Name / Team / Department" />
+                </div>
+
+                <div class="form-group">
+                    <label for="note">Your short note <span class="required">*</span></label>
+                    <textarea id="note" name="note" rows="5" maxlength="180" required placeholder="Write something kind (up to 180 chars)…"></textarea>
+                    <p class="field-help">Tips: Be specific and kind. Personal info will be removed from public view.</p>
+                </div>
+
+                <div class="form-group">
+                    <label class="text-small"><input type="checkbox" name="anonymous" checked /> Post anonymously</label>
+                </div>
+
+                <div class="d-flex gap-md">
+                    <button type="button" class="submit-btn" aria-label="Send one flower" id="btn-flower">🌸 Send Flower</button>
+                    <button type="submit" class="submit-btn" id="btn-note">📝 Send Note</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <div class="fb-toast" role="status" aria-live="polite"></div>
+
+    <script src="js/feedback-Elsie.js" defer></script>
+</body>
+</html>

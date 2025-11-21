@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Feedback & Thanks – UQ</title>
+
+    <link rel="stylesheet" href="css/page.css/index.css" />
+    <link rel="stylesheet" href="css/page.css/request.css" />
+    <link rel="stylesheet" href="css/page.css/feedback.css" />
+    <link rel="stylesheet" href="css/base.css" />
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav" aria-label="Top">
+        <div class="top-nav-links">
+            <a href="#">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav" aria-label="Main">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="contact.html">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+            </div>
+            <button class="search-btn">
+                <input type="text" class="search-bar" placeholder="Search here..." aria-label="Search">
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main">
+        <section aria-labelledby="flowers-title" class="info-section">
+
+            <!-- ✅ Top Flowers  -->
+            <div class="handlers-card" role="region" aria-labelledby="topwall-title">
+                <h2 id="topwall-title">Top Flowers — This Week</h2>
+                <p class="text-muted mb-md">Most appreciated staff and teams this week (campus-wide).</p>
+
+                <div class="d-grid gap-md" style="grid-template-columns: repeat(3, 1fr);">
+                    <!-- Prof. Alice -->
+                    <article class="handler" data-id="alice" data-flowers="128" aria-label="Prof. Alice Chen — 128 flowers">
+                        <div class="handler-avatar">
+                            <img src="pictures/Alice.jpg" alt="Prof. Alice" />
+                        </div>
+                        <div class="handler-info">
+                            <h3>Prof. Alice White</h3>
+                            <p class="handler-role">Professor • COMP7110</p>
+                            <p class="text-small"><strong>🌸 <span class="top-flower-count">128</span></strong> this week</p>
+                        </div>
+                    </article>
+
+                    <!-- Tutor Ben -->
+                    <article class="handler" data-id="ben" data-flowers="94" aria-label="Tutor Ben Li — 94 flowers">
+                        <div class="handler-avatar">
+                            <img src="pictures/Ben.jpg" alt="Tutor Ben Smith" />
+                        </div>
+                        <div class="handler-info">
+                            <h3>Tutor Ben Smith</h3>
+                            <p class="handler-role">Tutor • COMP7030</p>
+                            <p class="text-small"><strong>🌸 <span class="top-flower-count">94</span></strong> this week</p>
+                        </div>
+                    </article>
+
+                    <!-- IT Support -->
+                    <article class="handler" data-id="itsupport" data-flowers="76" aria-label="IT Support — 76 flowers">
+                        <div class="handler-avatar">
+                            <img src="pictures/ITsupport.jpg" alt="IT Support" />
+                        </div>
+                        <div class="handler-info">
+                            <h3>IT Support</h3>
+                            <p class="handler-role">Duhig L3</p>
+                            <p class="text-small"><strong>🌸 <span class="top-flower-count">76</span></strong> this week</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Quick Flowers -->
+            <div class="handlers-card" role="region" aria-labelledby="flowers-title">
+                <h2 id="flowers-title">Quick Thanks (Flowers)</h2>
+                <p class="text-muted mb-md">
+                    Send a 🌸 to appreciate staff or teaching team members. Your name won’t be shown if you choose anonymous.
+                </p>
+
+                <!-- Filters -->
+                <div class="d-flex flex-row gap-md mb-md" role="group" aria-label="Quick filters">
+                    <select id="role-filter" class="form-group select" aria-label="Filter by role">
+                        <option>All roles</option>
+                        <option>Professor</option>
+                        <option>Tutor</option>
+                        <option>Cleaning</option>
+                        <option>Security</option>
+                        <option>IT Support</option>
+                        <option>Library</option>
+                        <option>Facilities</option>
+                    </select>
+                    <select id="location-filter" class="form-group select" aria-label="Filter by location">
+                        <option>All locations</option>
+                        <option>St Lucia</option>
+                        <option>Gatton</option>
+                        <option>Herston</option>
+                    </select>
+                    <select id="sort-filter" class="form-group select" aria-label="Sort">
+                        <option>Newest</option>
+                        <option>Trending</option>
+                        <option>This week</option>
+                    </select>
+                </div>
+
+                <!-- Staff / Team Cards -->
+                <div class="d-grid gap-md" id="handler-grid" style="grid-template-columns: 1fr 1fr;">
+
+                    <!-- Professor -->
+                    <article class="handler" data-id="alice" data-role="Professor" data-location="St Lucia" data-flowers="128" aria-label="Professor Alice White - COMP7110">
+                        <div class="handler-avatar">
+                            <img src="pictures/Alice.jpg" alt="Professor Alice White" />
+                        </div>
+                        <div class="handler-info">
+                            <h3 class="handler-name">Prof. Alice White</h3>
+                            <p class="handler-role">COMP7110 • School of ITEE</p>
+                            <p class="handler-dept">Professor</p>
+                            <p class="handler-flowers">🌸 <span class="flower-count">128</span> flowers received</p>
+                            <div class="d-flex gap-md mt-sm" role="group" aria-label="Thank actions">
+                                <button type="button" class="submit-btn" data-id="alice" aria-label="Send one flower">🌸 Send Flower</button>
+                                <a href="feedback-submit.html?to=alice" class="submit-btn" aria-label="Write a short thank you">📝 Short Note</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tutor -->
+                    <article class="handler" data-id="ben" data-role="Tutor" data-location="St Lucia" data-flowers="94" aria-label="Tutor Ben Smith - COMP7030">
+                        <div class="handler-avatar">
+                            <img src="pictures/Ben.jpg" alt="Tutor Ben Smith" />
+                        </div>
+                        <div class="handler-info">
+                            <h3 class="handler-name">Ben Smith</h3>
+                            <p class="handler-role">COMP7030 • Lab 2</p>
+                            <p class="handler-dept">Tutor</p>
+                            <p class="handler-flowers">🌸 <span class="flower-count">94</span> flowers received</p>
+                            <div class="d-flex gap-md mt-sm" role="group" aria-label="Thank actions">
+                                <button type="button" class="submit-btn" data-id="ben" aria-label="Send one flower">🌸 Send Flower</button>
+                                <a href="feedback-submit.html?to=ben" class="submit-btn" aria-label="Write a short thank you">📝 Short Note</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Facilities -->
+                    <article class="handler" data-id="askus" data-role="Facilities" data-location="St Lucia" data-flowers="56" aria-label="ASK US - Duhig L3">
+                        <div class="handler-avatar">
+                            <img src="pictures/askus.jpg" alt="AskUS" />
+                        </div>
+                        <div class="handler-info">
+                            <h3 class="handler-name">ASK US</h3>
+                            <p class="handler-role">Duhig Library – Level 3</p>
+                            <p class="handler-dept">Facilities</p>
+                            <p class="handler-flowers">🌸 <span class="flower-count">56</span> flowers received</p>
+                            <div class="d-flex gap-md mt-sm" role="group" aria-label="Thank actions">
+                                <button type="button" class="submit-btn" data-id="askus" aria-label="Send one flower">🌸 Send Flower</button>
+                                <a href="feedback-submit.html?to=askus" class="submit-btn" aria-label="Write a short thank you">📝 Short Note</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- IT Support -->
+                    <article class="handler" data-id="itsupport" data-role="IT Support" data-location="St Lucia" data-flowers="76" aria-label="IT Support - CSSE Helpdesk">
+                        <div class="handler-avatar">
+                            <img src="pictures/ITsupport.jpg" alt="IT Support Helpdesk" />
+                        </div>
+                        <div class="handler-info">
+                            <h3 class="handler-name">IT Support</h3>
+                            <p class="handler-role">CSSE Helpdesk</p>
+                            <p class="handler-dept">IT Services</p>
+                            <p class="handler-flowers">🌸 <span class="flower-count">76</span> flowers received</p>
+                            <div class="d-flex gap-md mt-sm" role="group" aria-label="Thank actions">
+                                <button type="button" class="submit-btn" data-id="itsupport" aria-label="Send one flower">🌸 Send Flower</button>
+                                <a href="feedback-submit.html?to=itsupport" class="submit-btn" aria-label="Write a short thank you">📝 Short Note</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="fb-toast" role="status" aria-live="polite"></div>
+    <!-- JS -->
+    <script src="js/feedback-Elsie.js" defer></script>
+</body>
+</html>

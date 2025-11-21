@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Detailed Feedback - UQ</title>
+    <link rel="stylesheet" href="css/page.css/index.css" />
+    <link rel="stylesheet" href="css/page.css/request.css" />
+    <link rel="stylesheet" href="css/page.css/feedback.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/request.css" />
+    <link rel="stylesheet" href="css/feedback.css" />   
+</head>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="#">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="contact.html">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+            </div>
+            <button class="search-btn">
+                <span class="search-icon">🔍</span>
+                Search
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- User Greeting -->
+        <div class="user-greeting">
+            <span>Hi Dev</span>
+            <div class="user-icon">👤</div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Left Column - Request Form -->
+            <div class="form-section">
+                <h1>Request</h1>
+                
+                <p class="required-note">* Denotes a required field.</p>
+
+                <form class="request-form">
+                    <div class="form-group">
+                        <label for="subject">Subject <span class="required">*</span></label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="question">Your question <span class="required">*</span></label>
+                        <textarea id="question" name="question" rows="8" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topic">Topic <span class="required">*</span></label>
+                        <p class="field-help">Choosing a topic will help us get your request to the right team faster.</p>
+                        <select id="topic" name="topic" required>
+                            <option value="it-support">IT Support and Requests</option>
+                            <option value="facilities">Facilities</option>
+                            <option value="hr">Human Resources</option>
+                            <option value="finance">Finance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="documents">Attach Documents</label>
+                        <p class="field-help">You can attach images, PDF, Word, CSV, Excel and PowerPoint files.</p>
+                        <input type="file" id="documents" name="documents" multiple>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Continue</button>
+                </form>
+            </div>
+
+            <!-- Right Column - Handler Info -->
+            <div class="info-section">
+                <div class="handlers-card">
+                    <h2>Your request will be handled by</h2>
+                    
+                    <div class="handler">
+                        <div class="handler-avatar">
+                            <img src="pictures/tutor.png" alt="Professor Mark Hickman">
+                        </div>
+                        <div class="handler-info">
+                            <h3>Professor Mark Hickman</h3>
+                            <p class="handler-role">Affiliate of Dow Centre for Sustainable Engineering Innovation</p>
+                            <p class="handler-dept">Dow Centre for Sustainable Engineering Innovation</p>
+                            <p class="handler-faculty">Faculty of Engineering, Architecture and Information Technology</p>
+                        </div>
+                    </div>
+
+                    <div class="handler">
+                        <div class="handler-avatar">
+                            <img src="pictures/tutor2.png" alt="Professor Lisa Ruhanen">
+                        </div>
+                        <div class="handler-info">
+                            <h3>Professor Lisa Ruhanen</h3>
+                            <p class="handler-role">Professor and Deputy Head of School</p>
+                            <p class="handler-dept">School of Business</p>
+                            <p class="handler-faculty">Faculty of Business, Economics and Law</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="map-card">
+                    <h2>See where your request will be addressed on campus.</h2>
+                    <div class="map-container">
+                        <img src="pictures/map.png" alt="Campus Map" class="campus-map">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

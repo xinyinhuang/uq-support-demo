@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Detailed Feedback - UQ</title>
+    <link rel="stylesheet" href="css/page.css/index.css" />
+    <link rel="stylesheet" href="css/page.css/request-Dev.css" />
+    <link rel="stylesheet" href="css/page.css/feedback-Elsie.css" />
+    <link rel="stylesheet" href="css/page.css/feedback-submit-Elsie.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/request.css" />
+    <link rel="stylesheet" href="css/feedback.css" />   
+</head>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="#">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="contact.html">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+                <a href="staff.html">Data Dashboard</a>
+            </div>
+            <button class="search-btn">
+                <span class="search-icon">🔍</span>
+                Search
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 style="color: #ffffff;">BridgeU:Smart Support, Real Connection.</h1>
+                <p style="color: #ffffff;">Your Gateway to Support, Feedback, and Belonging.</p>
+            </div>
+            <div class="hero-image">
+                <img src="pictures/heroimage.png" alt="UQ Campus">
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="filters-container">
+            <div class="filter-group">
+                <label for="view-filter">View</label>
+                <select id="view-filter" class="filter-select">
+                    <option>Active</option>
+                    <option>All</option>
+                    <option>Completed</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="related-filter">Related to</label>
+                <select id="related-filter" class="filter-select">
+                    <option>Anyone</option>
+                    <option>Me</option>
+                    <option>My Team</option>
+                </select>
+            </div>
+        </div>
+    <div class="filter-action">
+    <button class="btn btn--primary" onclick="window.location.href='appointment.html'">
+        My Appointment
+    </button>
+    </div>
+    </section>
+    
+
+    <!-- Requests Table -->
+    <section class="requests-section">
+        <div class="table-container">
+            <table class="requests-table">
+                <thead>
+                    <tr>
+                        <th>Request</th>
+                        <th>Status</th>
+                        <th>Related to</th>
+                        <th>Request date</th>
+                        <th>Due date</th>
+                        <th>ID</th>
+                        <th>Assigned to</th>
+                        <th>Action</th>
+                        <th>Feedback</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="9" class="no-requests">No requests to display.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

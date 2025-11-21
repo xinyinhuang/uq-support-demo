@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Campus Map Prototype</title>
+        <link rel="stylesheet" href="css/reset.css" />
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/page.css/index.css" />
+        <link rel="stylesheet" href="css/page.css/map.css" />
+    </head>
+    <body>
+        <nav class="top-nav">
+        <div class="top-nav-links">
+            <a href="index.html">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="contact.html">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+            </div>
+            <button class="search-btn">
+                <span class="search-icon">🔍</span>
+                Search
+            </button>
+        </div>
+    </nav>
+        <div class="page">
+
+            <aside class="sidebar">
+                <div class="search">
+                    <div class="search__icon">
+                        <input
+                            class="search__input"
+                            type="text"
+                            placeholder="Search in St. Lucia"
+                        />
+                    </div>
+                </div>
+
+                <ul class="menu" id="menuList">
+                    <li class="menu__item" data-group="Administration">Student Administration</li>
+                    <li class="menu__item" data-group="Counselling">
+                        Student Counselling
+                    </li>
+                    <li class="menu__item" data-group="Accessibility">
+                        Accessibility and Welfare
+                    </li>
+                </ul>
+            </aside>
+
+    
+            <main class="map" id="mapArea">
+                <img
+                    src="pictures/map.png"
+                    alt="Campus Map"
+                    class="map__image"
+                />
+       
+                <div class="pins" id="pins">
+                    <!-- Student Administration -->
+                    <div
+                        class="pin-wrapper"
+                        data-group="Administration"
+                        data-x="60"
+                        data-y="60"
+                    >
+                        <button
+                            class="pin"
+                            aria-label="Student Center"
+                        ></button>
+                        <div class="pin-label">Student Center</div>
+                    </div>
+
+                    <div
+                        class="pin-wrapper"
+                        data-group="Administration"
+                        data-x="60"
+                        data-y="70"
+                    >
+                        <button class="pin" aria-label="EAIT Library"></button>
+                        <div class="pin-label">Exam Service</div>
+                    </div>
+
+                    <!-- Counselling -->
+                    <div
+                        class="pin-wrapper"
+                        data-group="Counselling"
+                        data-x="76"
+                        data-y="38"
+                    >
+                        <button
+                            class="pin"
+                            aria-label="psychological counseling"
+                        ></button>
+                        <div class="pin-label">Psychological Counseling</div>
+                    </div>
+
+                    <!-- Accessibility -->
+                    <div
+                        class="pin-wrapper"
+                        data-group="Accessibility"
+                        data-x="70"
+                        data-y="48"
+                    >
+                        <button class="pin" aria-label="UQU"></button>
+                        <div class="pin-label">UQU</div>
+                    </div>
+
+                    <div
+                        class="pin-wrapper"
+                        data-group="Accessibility"
+                        data-x="65"
+                        data-y="48"
+                    >
+                        <button class="pin" aria-label="Disability Support"></button>
+                        <div class="pin-label">Disability Support</div>
+                    </div>
+
+                </div>
+             
+                <div class="popovers" id="popovers">
+                    <div class="popover" data-group="Administration">
+                        <img
+                            class="popover__thumb"
+                            src="pictures/building2.png"
+                            alt="Student Center"
+                        />
+                        <div class="popover__body">
+                            <div class="popover__title">Student Center</div>
+                            <div class="popover__time">Timings 10am – 17pm</div>
+                            <div class="popover__actions">
+
+                                <a href="contact.html" class="btn btn--primary">Appoint</a>
+                                <button class="btn">Navigate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popover" data-group="Administration">
+                        <img
+                            class="popover__thumb"
+                            src="pictures/building1.png"
+                            alt="Exam Service"
+                        />
+                        <div class="popover__body">
+                            <div class="popover__title">Exam Service</div>
+                            <div class="popover__time">Timings 10am – 17pm</div>
+                            <div class="popover__actions">
+                                <a href="contact.html" class="btn btn--primary">Appoint</a>
+                                <button class="btn">Navigate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popover" data-group="Counselling">
+                        <img
+                            class="popover__thumb"
+                            src="pictures/building1.png"
+                            alt="Psychological Counseling"
+                        />
+                        <div class="popover__body">
+                            <div class="popover__title">Psychological Counseling</div>
+                            <div class="popover__time">Open 9am – 5pm</div>
+                            <div class="popover__actions">
+                                <a href="contact.html" class="btn btn--primary">Appoint</a>
+                                <button class="btn">Navigate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="popover" data-group="Accessibility">
+                        <img
+                            class="popover__thumb"
+                            src="pictures/building1.png"
+                            alt="UQU"
+                        />
+                        <div class="popover__body">
+                            <div class="popover__title">UQU</div>
+                            <div class="popover__time">Mon–Fri 9am – 4pm</div>
+                            <div class="popover__actions">
+                                <a href="contact.html" class="btn btn--primary">Appoint</a>
+                                <button class="btn">Navigate</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popover" data-group="Accessibility">
+                        <img
+                            class="popover__thumb"
+                            src="pictures/building1.png"
+                            alt="Disability Support"
+                        />
+                        <div class="popover__body">
+                            <div class="popover__title">Disability Support</div>
+                            <div class="popover__time">Mon–Fri 9am – 4pm</div>
+                            <div class="popover__actions">
+                                <a href="contact.html" class="btn btn--primary">Appoint</a>
+                                <button class="btn">Navigate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /popovers -->
+            </main>
+        </div>
+        <script src="js/map.js"></script>
+    </body>
+</html>

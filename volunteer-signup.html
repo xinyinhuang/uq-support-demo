@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volunteer Sign Up - UQ</title>
+    <link rel="stylesheet" href="css/page.css/index.css" />
+    <link rel="stylesheet" href="css/page.css/request.css" />
+    <link rel="stylesheet" href="css/base.css" />
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav" aria-label="Top">
+        <div class="top-nav-links">
+            <a href="#">UQ home</a>
+            <a href="#">News</a>
+            <a href="#">Events</a>
+            <a href="#">Give</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav" aria-label="Main">
+        <div class="nav-container">
+            <div class="main-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="request.html">Make a Request</a>
+                <a href="contact.html">Contact</a>
+                <a href="map.html">Information & Services</a>
+                <a href="feedback.html" class="active">Feedback & Thanks</a>
+                <a href="volunteer.html">Volunteer</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- User Greeting -->
+        <div class="user-greeting">
+            <span>Join Us as a Volunteer</span>
+            <div class="user-icon">🌟</div>
+        </div>
+
+        <div class="content-grid">
+            <!-- Left Column - Sign Up Form -->
+            <div class="form-section">
+                <h1>Volunteer Sign Up</h1>
+                
+                <p class="required-note">* Denotes a required field.</p>
+
+                <form class="request-form">
+                    <div class="form-group">
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">UQ Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="name@uq.edu.au">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Your Role <span class="required">*</span></label>
+                        <select id="role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="student">Student</option>
+                            <option value="staff">Staff</option>
+                            <option value="researcher">Researcher</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="activity">Activity <span class="required">*</span></label>
+                        <input type="text" id="activity" name="activity" value="Explore UQ's South Garden with Carl" required readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="interests">What interests you about this activity? <span class="required">*</span></label>
+                        <textarea id="interests" name="interests" rows="4" required placeholder="Tell us why you'd like to join this activity..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" required>
+                            I acknowledge that I will participate in this volunteer activity responsibly and follow UQ's guidelines.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Sign Up</button>
+                </form>
+            </div>
+
+            <!-- Right Column - Activity Info -->
+            <div class="info-section">
+                <div class="handlers-card">
+                    <h2>Activity Details</h2>
+                    
+                    <div class="handler">
+                        <div class="handler-avatar">
+                            <img src="https://picsum.photos/seed/carl1/200" alt="Carl, head gardener">
+                        </div>
+                        <div class="handler-info">
+                            <h3>Carl</h3>
+                            <p class="handler-role">Head Gardener</p>
+                            <p class="handler-dept">UQ Sustainability</p>
+                            <p class="handler-faculty">Property and Facilities Division</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-details">
+                        <h3>What to Expect</h3>
+                        <ul>
+                            <li>Interactive garden walk</li>
+                            <li>Native plant discovery</li>
+                            <li>Sustainable gardening tips</li>
+                            <li>Networking with fellow volunteers</li>
+                        </ul>
+                        <p><strong>Duration:</strong> 2 hours</p>
+                        <p><strong>Location:</strong> UQ South Garden</p>
+                        <p><strong>Equipment:</strong> All tools will be provided</p>
+                        <p><strong>Meeting Point:</strong> The exact meeting location will be sent to your email before the event</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message Modal -->
+    <div id="successModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">
+        <div style="position: relative; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 30px; border-radius: 12px; max-width: 400px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.2);">
+            <h2 style="color: #4b2b7f; margin-bottom: 16px;">🎉 Application Submitted!</h2>
+            <p style="color: #534a6c; margin-bottom: 24px;">Thank you for signing up as a volunteer. We'll contact you shortly with more details.</p>
+            <button onclick="window.location.href='volunteer.html'" style="background: #4b2b7f; color: white; border: none; padding: 12px 24px; border-radius: 8px; cursor: pointer;">Return to Volunteer Page</button>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.request-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // 阻止表單的預設提交行為
+            
+            // 顯示成功訊息
+            document.getElementById('successModal').style.display = 'block';
+            
+            // 清空表單（可選）
+            this.reset();
+        });
+    </script>
+</body>
+</html>

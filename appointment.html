@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Appointment Details</title>
+
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/page.css/index.css" />
+  <link rel="stylesheet" href="css/page.css/contact.css">
+  <link rel="stylesheet" href="css/page.css/appointment.css">
+</head>
+<body>
+  <!-- Top bar -->
+  <nav class="top-nav">
+    <div class="top-nav-links">
+      <a href="index.html">UQ home</a>
+      <a href="#">News</a>
+      <a href="#">Events</a>
+      <a href="#">Give</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Main Navigation Bar -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="main-nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="request.html">Make a Request</a>
+        <a href="contact.html">Contact</a>
+        <a href="map.html">Information & Services</a>
+        <a href="feedback.html" class="active">Feedback & Thanks</a>
+        <a href="volunteer.html">Volunteer</a>
+      </div>
+      <button class="search-btn">
+        <input type="text" class="search-bar" placeholder="Search here..." aria-label="Search">
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero hero--booking">
+    <div class="hero__media"></div>
+    <div class="hero__overlay">
+      <div class="container hero__content">
+        <h1>Student Central</h1>
+        <p class="text-lead">Need assistance? We’ve got you covered.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumbs">
+    <div class="container">
+      <ol class="breadcrumbs__list">
+        <li><a href="contact.html">Meet us in Campus</a></li>
+        <li><a href="contact-confirm.html">Booking Confirmed</a></li>
+        <li aria-current="page">Appointment Details</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="container appt">
+    <header class="appt__header">
+      <h2>Appointment Details</h2>
+
+    </header>
+
+    <section class="appt__grid">
+      <article class="card profile profile--summary">
+        <div class="profile__head">
+          <img class="avatar"
+               src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=400&auto=format&fit=crop"
+               alt="Staff portrait">
+          <div>
+            <h4 id="staffName" class="mb-0">Adrian</h4>
+          </div>
+        </div>
+
+        <p class="booking__line">
+          at <strong id="locationText">Student Central, Saint Lucia Campus</strong>
+        </p>
+        <p class="booking__line">
+          on <strong id="dateText">Friday, Oct 13 2025</strong> at<br>
+          <strong id="timeText">—</strong>
+        </p>
+
+        <div class="appt__id">
+          Booking ID: <code id="bookingId">SC-2025-00128</code>
+        </div>
+
+        <div class="appt__actions">
+          <a class="btn btn--secondary" href="contact.html">Back to slots</a>
+          <a class="btn btn--secondary" href="index.html">Back to Home</a>
+          <button type="button" class="btn btn--danger" id="cancelBtn">Cancel</button>
+        </div>
+      </article>
+
+
+      <article class="card appt__details">
+        <h3 class="section-title">Student & Meeting Info</h3>
+        <dl class="kv">
+          <dt>Student</dt><dd id="studentName">Alex Kim</dd>
+          <dt>Email</dt><dd id="studentEmail">alex.kim@example.edu</dd>
+          <dt>Phone</dt><dd id="studentPhone">+61 4 1234 5678</dd>
+          <dt>Type</dt><dd id="meetingType">General Enquiry</dd>
+          <dt>Mode</dt><dd id="meetingMode">In-person</dd>
+          <dt>Location</dt><dd id="meetingRoom">Prentice (Building 42), Room 214</dd>
+          <dt>Status</dt><dd id="statusText2">Confirmed</dd>
+          <dt>Created at</dt><dd id="createdAt">Oct 09, 2025 10:13</dd>
+          <dt>Last update</dt><dd id="updatedAt">Oct 10, 2025 15:40</dd>
+        </dl>
+
+        <h3 class="section-title">Notes</h3>
+        <div class="notes-box" id="noteText">
+          — No additional notes —
+        </div>
+
+  
+      </article>
+    </section>
+  </main>
+  
+  <section id="emptyState" class="card" style="display:none; max-width:520px; margin:2rem auto; text-align:center; padding:2rem;">
+  — You do not have any appointment at the moment —
+  </section>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="mb-0">© The University of Queensland</p>
+      <nav class="footer__links">
+        <a href="#">Privacy</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </footer>
+<script>
+
+  const qs = new URLSearchParams(location.search);
+  const time = qs.get('time') || sessionStorage.getItem('booking.time') || '';
+  const note = qs.get('note') || sessionStorage.getItem('booking.note') || '';
+  const apptMain = document.querySelector('.appt');        
+  const empty = document.getElementById('emptyState');
+  if (!time) {
+    apptMain.style.display = 'none';
+    empty.style.display = 'block';
+  } else {
+    apptMain.style.display = 'block';
+    empty.style.display = 'none';
+  }
+  const timeEl = document.getElementById('timeText');
+  if (timeEl) timeEl.textContent = time || '—';
+
+  const noteEl = document.getElementById('noteText');
+  if (noteEl) noteEl.textContent = note ? note : '— No additional notes —';
+
+  document.getElementById('cancelBtn')?.addEventListener('click', () => {
+    const ok = confirm('Are you sure you want to cancel this appointment?');
+    if (!ok) return;
+
+    sessionStorage.removeItem('booking.time');
+    sessionStorage.removeItem('booking.note');
+    location.href = 'index.html';
+  });
+
+ 
+
+</script>
+
+  
+</body>
+</html>
